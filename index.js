@@ -8,10 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname+"/public")))
 const db = mysql.createConnection({
-  user: "uthzup6lnpzmmle6",
-  host: "bbupnk6fcuvvboczr06s-mysql.services.clever-cloud.com",
-  password: "YeKYhNWBJ4Fuh3zjAdUt",
-  database: "bbupnk6fcuvvboczr06s",
+   host: containers-us-west-135.railway.app,
+  port: 6251,
+  user: root,
+  password: rIKjp6Jje5yismcrUApm,
+  database: railway
 });
 
 app.post("/create", (req, res) => {
