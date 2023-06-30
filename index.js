@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname+"/public")))
 const db = mysql.createConnection({
+<<<<<<< HEAD
   host: "localhost",
   port: 3306,
   user: 'root',
@@ -36,6 +37,13 @@ app.post("/putdel", (req, res) => {
       }
     }
   );
+=======
+  host: 'containers-us-west-135.railway.app',
+  port: '6251',
+  user: 'root',
+  password: 'rIKjp6Jje5yismcrUApm',
+  database: 'railway'
+>>>>>>> 526d7ebcbd46b9af0c528f7832ed0be47c29603d
 });
 app.post("/create", (req, res) => {
   const name = req.body.name;
