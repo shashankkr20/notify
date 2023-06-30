@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const cors = require("cors");
 const path=require("path")
 
@@ -12,14 +12,19 @@ const db = mysql.createConnection({
   port: '6251',
   user: 'root',
   password: 'rIKjp6Jje5yismcrUApm',
-  database: 'railway'
+  database: 'railway',
+  waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
-db.connect((err)=>{
-  if(err)
-  console.log("error")
-  else
-  console.log("connection successfull")
-})
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to the MySQL database!');
+});
+
 app.post("/putdel", (req, res) => {
   const title = req.body.title;
   const uname = req.body.uname;
