@@ -19,6 +19,11 @@ const db = mysql.createConnection({
 });
 db.connect((err) => {
   if (err) {
+    console.log(process.env.MYSQL_HOST+
+      process.env.MYSQL_PORT
+      +process.env.MYSQL_USER
+      +process.env.MYSQL_PASSWORD
+      +process.env.MYSQL_DB)
     console.error('Error connecting to the database:', err);
     return;
   }
@@ -61,7 +66,6 @@ app.post("/create", (req, res) => {
     }
   );
 });
-
 // app.get("/test",(req,res)=>{
 // console.log(req.body.title);
 // res.send(req.body.title);
