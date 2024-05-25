@@ -156,6 +156,7 @@ app.put("/updatenote", (req, res) => {
 app.post("/validate", (req, res) => {
   const uname = req.body.uname;
   const pass = req.body.pass;
+  console.log(uname);
   db.query(
     `SELECT * FROM user WHERE username="${uname}" and password="${pass}"`,
     (err, result) => {
