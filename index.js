@@ -4,7 +4,13 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const path=require("path")
 require('dotenv').config();
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://notify-ivory.vercel.app/"],
+      methods:["POST","GET"],
+    credentials:true
+  }
+));
 app.use(express.json());
 app.use(express.static(path.join(__dirname+"/public")))
 const db = mysql.createConnection({
